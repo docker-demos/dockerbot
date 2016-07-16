@@ -1,0 +1,1 @@
+Started provisioning of <%= temp.hostname %> using the <%= temp.profile %> profile, this might take a few minutes.

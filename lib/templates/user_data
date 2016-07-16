@@ -1,0 +1,10 @@
+#cloud-config
+
+hostname: <%= hostname %>
+manage_etc_hosts: true
+output : { all : '| tee -a /var/log/cloud-init-output.log' }
+runcmd:
+- ANSIBLE_CONFIG=/home/ubuntu/user-data-bootstrap/ansible.cfg ansible-playbook /home/ubuntu/user-data-bootstrap/playbook.yml -e "hostname=<%= hostname %>" -u ubuntu
+- [ apt-get update ]
+- [ echo unattended-upgrades unattended-upgrades/enable_auto_updates boolean true | debconf-set-selections ]
+- [ apt-get -y install  unattended-upgrades ]
