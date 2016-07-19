@@ -17,4 +17,4 @@ WORKDIR ${BOTDIR}
 ADD . .
 RUN npm install
 
-CMD ["bin/hubot", "--adapter", $HUBOT_ADAPTER]
+CMD bin/hubot
